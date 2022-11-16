@@ -64,19 +64,19 @@ const router = express.Router() //routing function
 
 
 // students full list read 
-router.get('/api/bloglist', async (req, res) => {
+// router.get('/api/bloglist', async (req, res) => {
 
-    try {
+//     try {
 
-        const list = await DATA.find()
-        res.send(list)
+//         const list = await DATA.find()
+//         res.send(list)
 
 
-    } catch (error) {
-        console.log(error)
-    }
+//     } catch (error) {
+//         console.log(error)
+//     }
 
-})
+// })
 
 
 //  add 
@@ -109,18 +109,18 @@ router.post('/api/blog', async (req, res) => {
 
 // delete 
 
-router.delete('/api/blog/:id', async (req, res) => {
-    try {
-        let id = req.params.id
-        const deleteblog = await DATA.findByIdAndDelete(id)
-        res.send(deleteblog)
+// router.delete('/api/blog/:id', async (req, res) => {
+//     try {
+//         let id = req.params.id
+//         const deleteblog = await DATA.findByIdAndDelete(id)
+//         res.send(deleteblog)
 
 
-    } catch (error) {
-        console.log(error)
+//     } catch (error) {
+//         console.log(error)
 
-    }
-})
+//     }
+// })
 
 
 // update 
@@ -150,18 +150,18 @@ router.put('/api/blog', async (req, res) => {
 // Single  detail 
 
 
-router.get('/api/blog/:id', async (req, res) => {
-    try {
+// router.get('/api/blog/:id', async (req, res) => {
+//     try {
 
-        let id = req.params.id
-        const singleblog = await DATA.findById(id)
-        res.send(singleblog)
+//         let id = req.params.id
+//         const singleblog = await DATA.findById(id)
+//         res.send(singleblog)
 
-    } catch (error) {
-        console.log(error)
+//     } catch (error) {
+//         console.log(error)
 
-    }
-})
+//     }
+// })
 
 
 
