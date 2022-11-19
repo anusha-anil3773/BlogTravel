@@ -1,10 +1,10 @@
 
 
-const path = require('path');
+
 const express = require('express')
 const cors = require('cors')
 const logger = require('morgan') // for seeing api calls in terminal
-const PORT = 3000
+
 const app = new express()
 
 
@@ -17,7 +17,7 @@ app.use(cors()) //to connect frontend and backend without any disturbance
 app.use(express.json()) // to recieve data from front end
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
-app.use(express.static('./dist/frontend'));
+
 
 
 
@@ -172,11 +172,15 @@ router.put('/api/blog', async (req, res) => {
 // const api = require('./routes/api')
 // app.use('/api',api)
 
-app.get('/*', function(req,res)
 
-{res.sendFile(path.join(__dirname+'/dist/frontend/index.html'));});
-
+var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`...........Server running at ${PORT}.............`)
 })
+
+const path = require('path');
+app.use(express.static(path.join(__dirname+'/dist/frontend/index.html')));
+app.get('/*', function(req,res)
+
+{res.sendFile(path.join(__dirname+'/dist/frontend/index.html'));});
